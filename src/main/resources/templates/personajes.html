@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes de Peaky Blinders</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 800px; margin: auto; }
+        .personaje { margin: 20px 0; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+        img { max-width: 100px; height: auto; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Personajes de Peaky Blinders</h1>
+    <div th:each="personaje : ${personajes}" class="personaje">
+        <h2 th:text="${personaje.nombre}"></h2>
+        <p><strong>Descripción:</strong> <span th:text="${personaje.descripcion}"></span></p>
+        <img th:src="${personaje.foto}" alt="Imagen del personaje">
+    </div>
+    <footer>
+        <div>
+            <button onclick="window.location.href='/'" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">
+                Volver a la página principal
+            </button>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
+
+
+

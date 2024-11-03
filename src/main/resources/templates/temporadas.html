@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporadas de Peaky Blinders</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 800px; margin: auto; }
+        .temporada { margin: 20px 0; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+        .episodio { margin: 10px 0; }
+        h1, h2 { color: #333; }
+        footer { margin-top: 20px; font-size: 0.9em; color: #777; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Temporadas de Peaky Blinders</h1>
+    <div th:each="temporada : ${temporadas}" class="temporada">
+        <h2>Temporada <span th:text="${temporada.numeroTemporada}"></span></h2>
+        <p>Año de Emisión: <span th:text="${temporada.anioEmision}"></span></p>
+        <div class="episodios">
+            <h3>Episodios:</h3>
+            <ul>
+                <li th:each="episodio : ${temporada.episodios}" class="episodio">
+                    <p><strong>Nombre:</strong> <span th:text="${episodio.nombre}"></span></p>
+                    <p><strong>Descripción:</strong> <span th:text="${episodio.descripcion}"></span></p>
+                    <p><strong>Calificación:</strong> <span th:text="${episodio.calificacion}"></span></p>
+                    <p><strong>Código:</strong> <span th:text="${episodio.codigo}"></span></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <button onclick="window.location.href='/'" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">
+                Volver a la página principal
+            </button>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
+
+
+

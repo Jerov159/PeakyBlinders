@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Serie - Peaky Blinders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #444;
+    }
+    h2 {
+      font-size: 1.8em;
+      color: #666;
+      margin-top: 20px;
+    }
+    p {
+      font-size: 1.1em;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+    .poster {
+      width: 300px;
+      margin: 20px 0;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      font-size: 1.1em;
+    }
+    li {
+      margin: 8px 0;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .info-section {
+      width: 60%;
+      text-align: center;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="info-section">
+  <h1 th:text="${serie.nombre}">Nombre de la Serie</h1>
+  <p><strong>Descripción:</strong> <span th:text="${serie.descripcion}">Descripción de la serie</span></p>
+  <p><strong>Creador:</strong> <span th:text="${serie.creador}">Creador de la serie</span></p>
+  <p><strong>Clasificación:</strong> <span th:text="${serie.clasificacion}">Clasificación de la serie</span></p>
+  <img th:src="@{${serie.imagenPoster}}" alt="Póster de la Serie" class="poster">
+  <h2>Temporadas</h2>
+  <ul>
+    <li th:each="temporada : ${serie.temporadas}">
+      Temporada <span th:text="${temporada.numeroTemporada}">1</span> - Año de Emisión: <span th:text="${temporada.anioEmision}">2013</span>
+    </li>
+  </ul>
+  <a href="/" class="back-button">Volver a la página principal</a>
+</div>
+</body>
+</html>
+
+</html>
+

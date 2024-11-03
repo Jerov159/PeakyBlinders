@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Episodio</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 600px; margin: auto; }
+        img { max-width: 100%; height: auto; }
+        h1, h2 { color: #333; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Detalles del Episodio</h1>
+    <h2 th:text="${episodio.nombre}"></h2>
+    <p><strong>Código:</strong> <span th:text="${episodio.codigo}"></span></p>
+    <p><strong>Descripción:</strong> <span th:text="${episodio.descripcion}"></span></p>
+    <p><strong>Calificación:</strong> <span th:text="${episodio.calificacion}"></span></p>
+    <div th:each="foto : ${episodio.fotos}">
+        <img th:src="${foto.url}" alt="Foto del episodio">
+    </div>
+    <footer>
+        <a href="/temporadas">Volver a temporadas</a>
+    </footer>
+</div>
+</body>
+</html>
+
